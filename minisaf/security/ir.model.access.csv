@@ -1,0 +1,10 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_minisaf_lecturer,access.minisaf.lecturer,model_minisaf_lecturer,,1,1,1,1
+access_minisaf_student,access.minisaf.student,model_minisaf_student,,1,1,1,1
+access_minisaf_course,access.minisaf.course,model_minisaf_course,,1,1,1,1
+access_minisaf_courseclass,access.minisaf.courseclass,model_minisaf_courseclass,,1,1,1,1
+access_minisaf_courseplan,access.minisaf.courseplan,model_minisaf_courseplan,,1,1,1,1
+access_minisaf_coursegrade,access.minisaf.coursegrade,model_minisaf_coursegrade,,1,1,1,1
+access_minisaf_addstudent,access.minisaf.addstudent,model_minisaf_addstudent,,1,1,1,1
+access_minisaf_addclass,access.minisaf.addclass,model_minisaf_addclass,,1,1,1,1
+access_minisaf_transcript,access.minisaf.transcript,model_minisaf_transcript,,1,1,1,1

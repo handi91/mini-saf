@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- minisaf.courseclass tree view -->
+    <record id="minisaf_courseclass_view_tree" model="ir.ui.view">
+        <field name="name">Class List</field>
+        <field name="model">minisaf.courseclass</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Add your fields here -->
+                <field name="name" />
+                <field name="course_id" />
+                <field name="participant_number" />
+            </tree>
+        </field>
+    </record>
+
+    <!-- minisaf.courseclass form view -->
+    <record id="minisaf_courseclass_view_form" model="ir.ui.view">
+        <field name="name">Class Form</field>
+        <field name="model">minisaf.courseclass</field>
+        <field name="arch" type="xml">
+            <form string="Course Class">
+                <sheet>
+                    <group>
+                        <!-- Add your fields here -->
+                        <field name="course_id" />
+                        <field name="class_code"/>
+                        <field name="name" />
+                        <field name="lecturer_id" />
+                        <field name="participant_number" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- minisaf.courseclass action window -->
+    <record id="minisaf_courseclass_action" model="ir.actions.act_window">
+        <field name="name">Course Class</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">minisaf.courseclass</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem
+        id="minisaf_courseclass_menu_act"
+        name="Class"
+        parent="minisaf_course_menu_categ"
+        action="minisaf_courseclass_action"
+        sequence="20"/>
+
+</odoo>

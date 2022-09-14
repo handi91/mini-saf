@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    
+    <record id="transcript_wizard_view_form" model="ir.ui.view">
+        <field name="name">transcript_wizard_view_form</field>
+        <field name="model">minisaf.transcript</field>
+        <field name="arch" type="xml">
+            <form string="transcript_wizard_form">
+                <sheet>
+                    <group>
+                        <!-- Add your fields here -->
+                        <field name="student_id" />
+                    </group>
+                    <footer>
+                        <button name="get_transcript" type="object" string="Print Transcript" class="btn btn-primary"/>
+                        <button special="cancel" string="Cancel" class="btn btn-danger"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="transcript_action_wizard" model="ir.actions.act_window">
+        <field name="name">Get Transcript</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">minisaf.transcript</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="transcript_wizard_view_form" />
+        <field name="target">new</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem
+        id="minisaf_transcript_menu_act"
+        name="Transcript"
+        parent="minisaf_menu_root"
+        action="transcript_action_wizard"
+        sequence="50"/>
+</odoo>

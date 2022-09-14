@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem
+        id="minisaf_menu_root"
+        name="Mini SAF"
+        sequence="10"/>
+
+    <!-- This Menu Item Must have a parent -->
+    <menuitem
+        id="minisaf_course_menu_categ"
+        name="Course Info"
+        parent="minisaf_menu_root"
+        sequence="30"/>
+</odoo>

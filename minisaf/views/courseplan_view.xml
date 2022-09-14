@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- minisaf.courseplan tree view -->
+    <record id="minisaf_courseplan_view_tree" model="ir.ui.view">
+        <field name="name">Course Plan History</field>
+        <field name="model">minisaf.courseplan</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Add your fields here -->
+                <field name="student_id" />
+                <field name="term" />
+                <field name="total_credits" />
+                <field name="gpap" />
+                <field name="state" />
+            </tree>
+        </field>
+    </record>
+
+    <!-- minisaf.courseplan form view -->
+    <record id="minisaf_courseplan_view_form" model="ir.ui.view">
+        <field name="name">Course Plan Form</field>
+        <field name="model">minisaf.courseplan</field>
+        <field name="arch" type="xml">
+            <form string="Course Plan">
+                <header>
+                    <button
+                        name="accept_draft"
+                        type="object"
+                        string="Accept"
+                        class="btn btn-primary"
+                        states="draft"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,accepted"/>
+                </header>
+                <sheet>
+                    <group>
+                        <!-- Add your fields here -->
+                        <field name="student_id" attrs="{'readonly' : [('state', '!=', 'draft')]}"/>
+                        <field name="term" attrs="{'readonly' : [('state', '!=', 'draft')]}"/>
+                        <field name="total_credits" attrs="{'readonly' : [('state', '!=', 'draft')]}"/>
+                        <field name="gpap" attrs="{'readonly' : [('state', '!=', 'draft')]}"/>
+                    </group>
+                    <group name="courses" string="Courses">
+                        <field name="coursegrade_ids" attrs="{'readonly' : [('state', '!=', 'draft')]}">
+                            <tree editable='bottom'>
+                                <field name="courseclass_id"/>
+                                <field name="course_credits" />
+                                <field name="num_grade"/>
+                                <field name="letter_grade"/>
+                                <field name="total_grade" sum="Total"/>
+                            </tree>
+                        </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- minisaf.courseplan action window -->
+    <record id="minisaf_courseplan_action" model="ir.actions.act_window">
+        <field name="name">Course Plan History</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">minisaf.courseplan</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem
+        id="minisaf_courseplan_menu_act"
+        name="Course Plan"
+        parent="minisaf_menu_root"
+        action="minisaf_courseplan_action"
+        sequence="40"/>
+
+</odoo>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_course_pdf">
+        <t t-call="web.html_container">
+            <t t-call="web.internal_layout">
+                <div class="page">
+                    <h1>COURSE LIST</h1>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <span>Course Code</span>
+                                </th>
+                                <th>
+                                    <span>Course Name</span>
+                                </th>
+                                <th>
+                                    <span>Credits(SKS)</span>
+                                </th>
+                            </tr>
+                        </thead>
+                        <t t-foreach="docs" t-as="d">
+                            <tr>
+                                <td>
+                                    <span t-esc="d.code"/>
+                                </td>
+                                <td>
+                                    <span t-esc="d.name"/>
+                                </td>
+                                <td>
+                                    <span t-esc="d.credits"/>
+                                </td>
+                            </tr>
+                        </t>
+                    </table>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

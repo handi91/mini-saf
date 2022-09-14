@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="report_lecturer_xlsx" model="ir.actions.report">
+        <field name="name">Lecturer Excel</field>
+        <field name="model">minisaf.lecturer</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">minisaf.report_lecturer_xlsx</field>
+        <field name="report_file">minisaf.report_lecturer_xlsx</field>
+        <field name="binding_model_id" ref="model_minisaf_lecturer"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <record id="report_student_xlsx" model="ir.actions.report">
+        <field name="name">Student Excel</field>
+        <field name="model">minisaf.student</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">minisaf.report_student_xlsx</field>
+        <field name="report_file">minisaf.report_student_xlsx</field>
+        <field name="binding_model_id" ref="model_minisaf_student"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <record id="report_course_xlsx" model="ir.actions.report">
+        <field name="name">Course Excel</field>
+        <field name="model">minisaf.course</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">minisaf.report_course_xlsx</field>
+        <field name="report_file">minisaf.report_course_xlsx</field>
+        <field name="binding_model_id" ref="model_minisaf_course"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <record id="report_lecturer_pdf" model="ir.actions.report">
+        <field name="name">Lecturer PDF</field>
+        <field name="model">minisaf.lecturer</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">minisaf.report_lecturer_pdf</field>
+        <field name="report_file">minisaf.report_lecturer_pdf</field>
+        <field name="binding_model_id" ref="model_minisaf_lecturer"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <record id="report_student_pdf" model="ir.actions.report">
+        <field name="name">Student PDF</field>
+        <field name="model">minisaf.student</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">minisaf.report_student_pdf</field>
+        <field name="report_file">minisaf.report_student_pdf</field>
+        <field name="binding_model_id" ref="model_minisaf_student"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <record id="report_course_pdf" model="ir.actions.report">
+        <field name="name">Course PDF</field>
+        <field name="model">minisaf.course</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">minisaf.report_course_pdf</field>
+        <field name="report_file">minisaf.report_course_pdf</field>
+        <field name="binding_model_id" ref="model_minisaf_course"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <record id="wizard_report_transcript_pdf" model="ir.actions.report">
+        <field name="name">Get Transcript PDF</field>
+        <field name="model">minisaf.transcript</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">minisaf.wizard_report_transcript_pdf_tmp</field>
+        <field name="report_file">minisaf.wizard_report_transcript_pdf_tmp</field>
+        <field name="binding_model_id" ref="model_minisaf_transcript"/>
+        <field name="binding_type">report</field>
+    </record>
+
+</odoo>

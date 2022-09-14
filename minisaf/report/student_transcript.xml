@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="wizard_report_transcript_pdf_tmp">
+        <t t-call="web.html_container">
+            <t t-call="web.internal_layout">
+                <div class="page">
+                    <h2>TRANSCRIPT</h2>
+                        <div class="row">
+                            <div class="col-4">Student's Name    :</div>
+                            <div class="col-8">
+                                <t t-esc="student['name']"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4">NIM               :</div>
+                            <div class="col-8">
+                                <t t-esc="student['nim']"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4">Generation        :</div>
+                            <div class="col-8">
+                                <t t-esc="student['generation']"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4">Academic Advisor  :</div>
+                            <div class="col-8">
+                                <t t-esc="student['academic_lecturer_id'][1]"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4">Total Credits     :</div>
+                            <div class="col-8">
+                                <t t-esc="student['total_credit_passed']"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4">GPA               :</div>
+                            <div class="col-8">
+                                <t t-esc="student['gpa']"/>
+                            </div>
+                        </div>
+                        <t t-foreach="courseplans" t-as="plan">
+                            <br></br>
+                            <div class="row">
+                                <div class="col-1">Term:</div>
+                                <div class="col-2">
+                                    <t t-esc="plan['term']"/>
+                                </div>
+                                <div class="col-2">GPA Period:</div>
+                                <div class="col-2">
+                                    <t t-esc="plan['gpap'][:4]"/>
+                                </div>
+                                <div class="col-2">Total Credits:</div>
+                                <div class="col-2">
+                                    <t t-esc="plan['total_credits']"/>
+                                </div>
+                            </div>
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            <span>Course's Class</span>
+                                        </th>
+                                        <th>
+                                            <span>Credits</span>
+                                        </th>
+                                        <th>
+                                            <span>Number Grade</span>
+                                        </th>
+                                        <th>
+                                            <span>Letter Grade</span>
+                                        </th>
+                                        <th>
+                                            <span>Total</span>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <t t-foreach="plan['course_grade']" t-as="grade">
+                                    <tr>
+                                        <td>
+                                            <span t-esc="grade['courseclass_id'][1]"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="grade['course_credits']"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="grade['num_grade']"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="grade['letter_grade']"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="grade['total_grade']"/>
+                                        </td>
+                                    </tr>
+                                </t>
+    
+                            </table>
+                        </t>
+                </div>
+            </t>
+        </t>
+    </template>
+
+</odoo>

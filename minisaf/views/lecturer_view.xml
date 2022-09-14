@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- minisaf.lecturer tree view -->
+    <record id="minisaf_lecturer_view_tree" model="ir.ui.view">
+        <field name="name">Lecturer List</field>
+        <field name="model">minisaf.lecturer</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Add your fields here -->
+                <field name="name" />
+                <field name="nip" />
+                <field name="email" />
+            </tree>
+        </field>
+    </record>
+
+    <!-- minisaf.lecturer form view -->
+    <record id="minisaf_lecturer_view_form" model="ir.ui.view">
+        <field name="name">Lecturer Form</field>
+        <field name="model">minisaf.lecturer</field>
+        <field name="arch" type="xml">
+            <form string="lecturer">
+                <header>
+                    <button 
+                        name="%(minisaf.add_student_action_wizard)d" 
+                        string="Add Student"
+                        type="action"
+                        class="btn btn-primary"/>
+                    <button 
+                        name="%(minisaf.add_class_action_wizard)d" 
+                        string="Add Class"
+                        type="action"
+                        class="btn btn-primary"/>
+                </header>
+                <sheet>
+                    <group name="bio" string="Bio">
+                        <!-- Add your fields here -->
+                        <field name="name" />
+                        <field name="nip" />
+                        <field name="email" />
+                    </group>
+                    <group name="studentlist" string="Advised Students">
+                        <field name="advised_student_ids" readonly='1'>
+                            <tree>
+                                <field name="name" />
+                                <field name="nim" />
+                                <field name="generation" />
+                            </tree>
+                        </field>
+                    </group>
+                    <group name="courseclasslist" string="Course Classes">
+                        <field name="courseclass_ids" readonly='1'>
+                            <tree>
+                                <field name="name" />
+                                <field name="participant_number" />
+                            </tree>
+                        </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- minisaf.lecturer action window -->
+    <record id="minisaf_lecturer_action" model="ir.actions.act_window">
+        <field name="name">Lecturer</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">minisaf.lecturer</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem
+        id="minisaf_lecturer_menu_act"
+        name="Lecturer"
+        parent="minisaf_menu_root"
+        action="minisaf_lecturer_action"
+        sequence="10"/>
+
+</odoo>

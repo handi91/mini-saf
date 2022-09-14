@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- minisaf.course tree view -->
+    <record id="minisaf_course_view_tree" model="ir.ui.view">
+        <field name="name">Course List</field>
+        <field name="model">minisaf.course</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Add your fields here -->
+                <field name="code" />
+                <field name="name" />
+                <field name="credits" />
+            </tree>
+        </field>
+    </record>
+
+    <!-- minisaf.course form view -->
+    <record id="minisaf_course_view_form" model="ir.ui.view">
+        <field name="name">Course Form</field>
+        <field name="model">minisaf.course</field>
+        <field name="arch" type="xml">
+            <form string="Course">
+                <sheet>
+                    <group name="coursedetail" string="Course Detail">
+                        <!-- Add your fields here -->
+                        <field name="code" />
+                        <field name="name" />
+                        <field name="credits" />
+                    </group>
+                    <group name="classopened" string="Opened Classes">
+                        <field name="courseclass_ids">
+                            <tree readonly='1'>
+                                <field name="name" />
+                                <field name="participant_number" />
+                            </tree>
+                        </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- minisaf.course action window -->
+    <record id="minisaf_course_action" model="ir.actions.act_window">
+        <field name="name">Course</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">minisaf.course</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem
+        id="minisaf_course_menu_act"
+        name="Course"
+        parent="minisaf_course_menu_categ"
+        action="minisaf_course_action"
+        sequence="10"/>
+
+</odoo>

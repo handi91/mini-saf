@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- minisaf.student tree view -->
+    <record id="model_name_view_tree" model="ir.ui.view">
+        <field name="name">Student List</field>
+        <field name="model">minisaf.student</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Add your fields here -->
+                <field name="name" />
+                <field name="nim" />
+                <field name="generation" />
+                <field name="academic_lecturer_id" />
+                <field name="active_term" />
+                <field name="total_credit_passed" readonly='1'/>
+                <field name="gpa" readonly='1'/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- minisaf.student form view -->
+    <record id="minisaf_student_view_form" model="ir.ui.view">
+        <field name="name">Student Form</field>
+        <field name="model">minisaf.student</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group name="bio" string="Bio">
+                        <!-- Add your fields here -->
+                        <field name="name" />
+                        <field name="nim" />
+                        <field name="generation" />
+                        <field name="academic_lecturer_id" />
+                    </group>
+                    <group name="summary" string="Academic Summary">
+                        <field name="active_term" />
+                        <field name="total_credit_passed" />
+                        <field name="gpa" />
+                        <field name="courseplan_ids" readonly='1'>
+                            <tree>
+                                <field name="term" />
+                                <field name="total_credits" />
+                                <field name="gpap" />
+                            </tree>
+                        </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- minisaf.student action window -->
+    <record id="minisaf_student_action" model="ir.actions.act_window">
+        <field name="name">Student</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">minisaf.student</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem
+        id="minisaf_student_menu_act"
+        name="Student"
+        parent="minisaf_menu_root"
+        action="minisaf_student_action"
+        sequence="20"/>
+
+</odoo>
